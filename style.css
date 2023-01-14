@@ -4,6 +4,9 @@
     font-family: 'Poppins' sans-serif;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background: #080808;
     color: #fff;
@@ -362,6 +365,7 @@ nav .fa-solid{
     #header {
         background-image: url(images/phone-background\ 1.jpg);
         background-size:cover;   
+        width:auto;
     
     }
     .header-text{
@@ -413,6 +417,9 @@ nav .fa-solid{
         font-size: 16px;
         margin-right: 20px;
     }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
     
     #services-list   {
         display: inline-flex;
@@ -420,19 +427,28 @@ nav .fa-solid{
        
         }
         .flex-gap  div{
-            margin: 10px;
-         
+            margin: 10px; 
         }
         .work-list  {
             display: inline-flex;
             flex-wrap: wrap;
             margin: 10px;
-            align-content: space-between;
             }
-            .flex-gap{
-                display: flex;
-                flex-direction: column;
-                flex: left;
+            .flex-gap div{
+               flex-direction: column;
+                
             }
 
+            .work:hover img{
+                transform: scale(1.0);
+                border-radius: 10px;
+                
+            }
+            .work:hover .layer{
+                border-radius: 10px;
+                height:100%;
+            }
+            .btn:hover{
+                background: #ff004f;
+            }
 }
