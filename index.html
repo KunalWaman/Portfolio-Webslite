@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
+    <!--
     <script src="https://kit.fontawesome.com/9f5de7d44d.js" crossorigin="anonymous"></script>
 
-   <!-- <script src="app.js"></script>-->
+    <script src="app.js"></script>-->
 </head>
 <body>
     <div id="header">
@@ -159,7 +160,7 @@
                     <a href="images/my-cv.pdf"  download class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-left">
-                    <form>
+                    <form  name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your email"  required> 
                         <textarea name="Message"  rows="6" placeholder="Your Message"></textarea>
@@ -203,6 +204,18 @@
        } 
         
          </script>
+
   
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby-1IMJBHOHYTJXlCpCFHOrGoXE-90s8EBEAwjdbxfuGcoCxgnfgdH9Wd9JJqJ1TBcJ/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 </html>
